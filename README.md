@@ -114,6 +114,7 @@ def classify_text(classifier, tf_idf_train, tf_idf_test, y_train):
         TF-IDF vectorization of test data
     y_train : pandas.Series object
         Pandas series containing label for each document in the train set
+    
     Returns
     --------
     train_preds :  list object
@@ -168,6 +169,8 @@ def get_idf(class_, df, stopwords_list):
         data frame containing texts and labels
     stopwords_list: list object
         List containing words and punctuation to remove. 
+    
+    Returns
     --------
     important_10 : pandas dataframe object
         Dataframe containing 10 words and respective IDF values
@@ -192,7 +195,7 @@ def get_idf(class_, df, stopwords_list):
         #    increment it by 1
         
     # e) take our dictionary and calculate the 
-    #    IDF (number of docs / number of docs containing each word) 
+    #    IDF (log(number of docs / number of docs containing each word)) 
     #    for each word
     
     # f) return the 10 words with the lowest IDF 
